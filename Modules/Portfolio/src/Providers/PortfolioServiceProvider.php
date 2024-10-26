@@ -2,6 +2,7 @@
 
 namespace Portfolio\Providers;
 
+
 use Illuminate\Support\ServiceProvider;
 use Portfolio\Http\Middleware\RedirectTemplate;
 
@@ -13,6 +14,8 @@ class PortfolioServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../Routes/api.php');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'portfolio');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations'); 
+
+        include(__DIR__ . '/../helper.php');
     }
 
     public function register()
