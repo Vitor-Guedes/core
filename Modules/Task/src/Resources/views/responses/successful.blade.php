@@ -4,7 +4,7 @@
     hx-trigger="load delay:1s"
     hx-target="#tasks_container" 
     hx-swap="innerHTML"
-    hx-push-url="{{route('web.portfolio.index')}}"
+    hx-push-url="{{route('web.task.index')}}"
     hx-on::load="setTimeout(() => { document.querySelector('#request_response').classList.toggle('invisible') }, 3000)"
     >
     <span id="request_response_fail">{{$message}}</span>

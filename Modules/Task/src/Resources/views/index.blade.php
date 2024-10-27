@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('page-title', 'Portfolio - Tarefas')</title>
+    <title>@yield('page-title', 'Tarefas')</title>
 
     <style>
         .hide {
@@ -15,7 +15,7 @@
     <script src="{{ asset('/js/tailwind.js') }}"></script>
 
     <script defer>
-        skeletonSwap = (title = 'Portfolio') => {
+        skeletonSwap = (title = 'Tarefa') => {
             document.title = title;
 
             const container = document.querySelector('#tasks_container');
@@ -70,7 +70,7 @@
         <div class="flex flex-col gap-2.5">
 
             @section('header-options')
-                @include('portfolio::header-options')
+                @include('task::header-options')
             @show
 
             @section('container')
@@ -79,10 +79,10 @@
                     hx-swap="innerHTML" 
                     hx-trigger="load" 
                     class="w-full"
-                    hx-push-url="{{route('web.portfolio.index')}}"
+                    hx-push-url="{{route('web.task.index')}}"
                 >
                     <!-- skeleton -->
-                    @include('portfolio::skeleton')
+                    @include('task::skeleton')
                 </div>
             @show
 
@@ -94,7 +94,7 @@
             id="request_response" class="invisible"
         @else  
             hx-trigger="load"
-            hx-post="{{route('web.portfolio.responses')}}"
+            hx-post="{{route('web.task.responses')}}"
             hx-include="[name='message'],[name='type']"
         @endif>
         @if (isset($error))
@@ -104,7 +104,7 @@
     </div>
 
     <!-- skeleton -->
-    @include('portfolio::skeleton')
+    @include('task::skeleton')
 
 </div>
 </body>

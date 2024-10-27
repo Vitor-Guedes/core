@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         @forelse($tasks as $task)
-            @include('portfolio::tasks.row')
+            @include('task::tasks.row')
         @empty
             <tr class="py-2 colspan">
                 <td colSpan={3}>Sem Resultados</td>
@@ -19,4 +19,4 @@
 </table>
 
 <!-- pagination -->
-@include('portfolio::pagination')
+@include('task::pagination')

@@ -1,4 +1,4 @@
-@extends('portfolio::index')
+@extends('task::index')
 
 @section('container')
     <div id="tasks_container" class="w-full">
@@ -44,7 +44,7 @@
                     hx-target="#tasks_container" 
                     hx-swap="innerHTML"
                     hx-on::before-request="skeletonSwap()"
-                    hx-push-url="{{route('web.portfolio.index')}}"
+                    hx-push-url="{{route('web.task.index')}}"
                     hx-on:click="toggleClass(document.querySelector('#header-options'), 'hide')"
                 >
                     <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
