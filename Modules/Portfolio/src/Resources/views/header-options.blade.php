@@ -16,8 +16,25 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
         </svg>
     </button>
-    <!-- filter -->
-    <div>
+
+    
+    <div class="flex flex-row gap-2.5">
+        <!-- mass action -->
+        <select class="py-2 px-5 border rounded-lg bg-white" 
+            name="action" 
+            id="action"
+            onchange="massAction(this)"
+            hx-trigger="mass-action from:body"
+            hx-post="{{route('api.tasks.mass.delete')}}"
+            hx-target="#tasks_container"
+            hx-select="#tasks_container"
+
+        >
+            <option value=""></option>
+            <option value="destroy">Exluir</option>
+        </select>
+
+        <!-- filter -->
         <input class="py-2 px-5 border rounded-lg" 
             type="text" 
             name="filter" 
@@ -31,8 +48,3 @@
         >
     </div>
 </div>
-@php
-
-\Illuminate\Support\Facades\Log::debug('hide:' . (int) hideHeaderOptions(), [request()->url()]);
-
-@endphp

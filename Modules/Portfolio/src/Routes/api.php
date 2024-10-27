@@ -15,4 +15,6 @@ Route::prefix('api')->group(function () {
     Route::get('/tasks-last', [PortfolioController::class, 'lastTask'])->name('api.tasks.get_last');
 
     Route::post('/tasks-filter', [PortfolioController::class, 'filter'])->name('api.tasks.filter');
+    
+    Route::post('/mass-actions', [PortfolioController::class, 'massAction'])->name('api.tasks.mass.delete');
 });

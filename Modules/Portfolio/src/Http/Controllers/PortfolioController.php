@@ -68,6 +68,28 @@ class PortfolioController extends Controller
         return view('portfolio::tasks.table', compact('tasks'));
     }
 
+    public function massAction()
+    {
+        $action = request()->input('action', '');
+
+        return match($action) {
+            'destroy' => $this->massDestroy(),
+            default => $this->index()
+        };
+    }
+
+    public function massDestroy()
+    {
+        $tasks = array_map(function ($key) {
+            list($label, $id) = explode(':', $key);
+            return $id;
+        }, array_keys(request()->except('action')));
+
+        Task::whereIn('id', $tasks)->delete();
+
+        return $this->index();
+    }
+
     // FORMS
     public function create()
     {   

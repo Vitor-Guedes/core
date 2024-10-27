@@ -1,4 +1,12 @@
-<tr class="" id="task_{{$task->id}}">
+<tr id="task_{{$task->id}}">
+    <td>
+        <input type="checkbox" 
+            name="task:{{$task->id}}" 
+            id="task:{{$task->id}}"
+            hx-trigger="click"
+            hx-on:click="addMassive(this)"
+        >
+    </td>
     <td class="py-3">{{$task->id}}</td>
     <td class="py-3">{{$task->title}}</td>
     <td class="py-3">

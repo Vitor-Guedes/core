@@ -1,5 +1,7 @@
 @extends('portfolio::index')
 
+@section('page-title', 'Editar tarefa: #' . $task->id)
+
 @section('container')
     <div id="tasks_container" class="w-full">
         <!-- form -->
