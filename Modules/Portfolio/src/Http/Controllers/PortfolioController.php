@@ -14,7 +14,7 @@ class PortfolioController extends Controller
 
     public function tasks()
     {
-        $tasks = Task::all();
+        $tasks = Task::simplePaginate(5);
         return view('portfolio::tasks.table', compact('tasks'));
     }
 
@@ -64,7 +64,7 @@ class PortfolioController extends Controller
     public function filter()
     {
         $title = request()->input('filter', '');
-        $tasks = Task::where('title', 'like', "%$title%")->get();
+        $tasks = Task::where('title', 'like', "%$title%")->simplePaginate();
         return view('portfolio::tasks.table', compact('tasks'));
     }
 
